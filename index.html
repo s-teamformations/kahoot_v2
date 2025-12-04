@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz de fin de cours</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fichier CSS séparé -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Logo fixe en haut -->
+  <div class="top-logo-bar">
+    <img
+      src="LOGO S-TEAM FORMATIONS SANS FOND.png.avif"
+      alt="S-TEAM Formations"
+      class="top-logo"
+    />
+  </div>
+
+  <!-- Carte du quiz -->
+  <div class="quiz-container">
+
+    <!-- Header centré -->
+    <div class="quiz-header">
+      <div class="quiz-header-main">
+        <div class="quiz-title">
+          QUIZ DE FIN DE COURS
+        </div>
+        <div class="quiz-subtitle">
+          Centre de formation aux métiers du sport
+        </div>
+        <div class="quiz-tags">
+          <span class="chip">
+            <span class="chip-icon">🏋️‍♀️</span>
+            Prépa métiers du sport
+          </span>
+          <span class="chip">
+            <span class="chip-icon">📚</span>
+            Pédagogie active
+          </span>
+          <span class="chip">
+            <span class="chip-icon">⚽</span>
+            S-TEAM Formations
+          </span>
+        </div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Mode interactif
+        </div>
+      </div>
+    </div>
+
+    <!-- ÉCRAN DE DÉPART -->
+    <div id="start-screen" class="start-screen">
+      <div class="start-title">Prêt(e) pour le quiz ?</div>
+      <div class="start-subtitle">
+        Scanne le QR code, entre ton pseudo puis lance le questionnaire.
+      </div>
+
+      <div class="pseudo-group">
+        <label for="pseudo" class="pseudo-label">Ton pseudo</label>
+        <input
+          type="text"
+          id="pseudo"
+          class="pseudo-input"
+          placeholder="Ex : Lucas13, SarahB, Invité..."
+          autocomplete="off"
+        />
+      </div>
+      <div id="pseudo-error" class="pseudo-error"></div>
+
+      <div class="start-infos">
+        <span id="info-question-count"></span>
+        <span>Réponses immédiates</span>
+        <span>Score final affiché</span>
+      </div>
+      <button id="start-btn" class="primary-btn">
+        <span>Commencer le quiz</span>
+        <span class="icon">▶</span>
+      </button>
+    </div>
+
+    <!-- ZONE QUIZ -->
+    <div id="quiz-screen" class="hidden">
+      <div class="progress-wrapper">
+        <div class="progress-label">
+          <span>Progression</span>
+          <span id="progress-text"></span>
+        </div>
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div id="question-number" class="question-number"></div>
+        <div id="question-text" class="question-text"></div>
+        <div class="question-meta">
+          <span><span class="question-meta-dot"></span><span id="question-theme"></span></span>
+          <span><span class="question-meta-dot"></span><span id="question-difficulty"></span></span>
+        </div>
+      </div>
+
+      <div id="answers" class="answers">
+        <!-- Réponses injectées en JS -->
+      </div>
+
+      <div id="feedback" class="feedback"></div>
+
+      <div class="footer">
+        <div class="score">
+          Score : <strong id="score-text">0</strong>
+        </div>
+
+        <button id="validate-btn" class="primary-btn">
+          <span>Valider la réponse</span>
+          <span class="icon">✔</span>
+        </button>
+
+        <button id="next-btn" class="primary-btn" disabled>
+          <span id="next-btn-text">Question suivante</span>
+          <span class="icon">⟶</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ÉCRAN DE FIN -->
+    <div id="end-screen" class="end-screen hidden">
+      <div class="end-title">Bravo, c'est terminé ! 🎉</div>
+      <div id="end-score" class="end-score"></div>
+      <div id="end-message" class="end-message"></div>
+
+      <div class="end-stats">
+        <div class="pill" id="end-correct"></div>
+        <div class="pill" id="end-total"></div>
+      </div>
+
+      <button id="restart-btn" class="primary-btn">
+        <span>Rejouer le quiz</span>
+        <span class="icon">↺</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Fichiers JavaScript séparés (questions d'abord, logique ensuite) -->
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
